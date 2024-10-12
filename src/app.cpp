@@ -124,6 +124,11 @@ int main(int argc, char** argv)
         std::cout << "----" << std::endl;
         for(std::vector<CAgent*>::iterator iter = init_manager.get_agent_list().begin();
         iter != init_manager.get_agent_list().end(); ++iter )
+        
+        /*클래스들(SimpleDecorator, 2,CSpecialAgent등)이 CAgent를 상속받고,
+        CAgent에 virtual로 선언이 되어 있는 detect()나 toString()을 재정의 하고 있다. 
+        따라서 CAgent 인스턴스로 생성가능하고, 클라이언트 코드의 변경 없이도 
+        CAgent의 실제 객체에 따라 동작이 달라진다.*/
             std::cout << "Time: " << sim_time << ", " <<**iter << std::endl;
             // (*iter) => CAgent*
             // *(*iter) => CAgent
